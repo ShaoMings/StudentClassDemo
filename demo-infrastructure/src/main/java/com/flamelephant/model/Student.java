@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author shaoming
- * @since 2021-07-27
+ * @since 2021-07-28
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -60,13 +60,13 @@ public class Student implements Serializable {
     /**
      * 修改时间
      */
-      @TableField(fill = FieldFill.UPDATE)
+      @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
      * 加入班级时间
      */
-    @TableField(fill = FieldFill.INSERT)
+      @TableField(fill = FieldFill.INSERT)
     private Date joinClassTime;
 
     /**

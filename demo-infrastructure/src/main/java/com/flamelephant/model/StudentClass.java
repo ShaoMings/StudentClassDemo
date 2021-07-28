@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author shaoming
- * @since 2021-07-27
+ * @since 2021-07-28
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -28,7 +28,7 @@ public class StudentClass implements Serializable {
     /**
      * 班级名称
      */
-      @TableId(value = "class_name", type = IdType.ASSIGN_UUID)
+      @TableId(value = "class_name", type = IdType.INPUT)
     private String className;
 
     /**

@@ -6,7 +6,7 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver  #引入sql性能分析插件p6spy后 需要更换驱动
-    url: jdbc:mysql:///demo?useSSL=false   #引入sql性能分析插件p6spy后 需要更换url
+    url: jdbc:mysql:///demo?useSSL=false&useUnicode=true&amp&characterEncoding=UTF-8   #引入sql性能分析插件p6spy后 需要更换url
     #    url: jdbc:p6spy:mysql://localhost:3306/world
     #    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
     username: root

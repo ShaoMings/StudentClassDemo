@@ -81,8 +81,9 @@ public class CodeGenerator {
         strategy.setLogicDeleteFieldName("deleted");
         // 自动填充配置
         TableFill create = new TableFill("create_time", FieldFill.INSERT);
+        TableFill joinClassTime = new TableFill("join_class_time", FieldFill.INSERT);
         TableFill update = new TableFill("update_time", FieldFill.INSERT_UPDATE);
-        strategy.setTableFillList(Arrays.asList(create,update));
+        strategy.setTableFillList(Arrays.asList(create,update,joinClassTime));
         // 乐观锁
         strategy.setVersionFieldName("version");
         // 驼峰命名

@@ -2,8 +2,11 @@ package com.flamelephant.test;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.flamelephant.ControllerApplication;
+import com.flamelephant.mapper.StudentClassMapper;
 import com.flamelephant.mapper.StudentMapper;
 import com.flamelephant.model.Student;
+import com.flamelephant.model.StudentClass;
+import com.flamelephant.service.StudentClassService;
 import com.flamelephant.service.StudentService;
 import com.flamelephant.utils.SpringBootUtils;
 import org.junit.Test;
@@ -35,7 +38,13 @@ public class ContentTest {
     StudentService studentService;
 
     @Autowired
+    StudentClassService studentClassService;
+
+    @Autowired
     StudentMapper studentMapper;
+
+    @Autowired
+    StudentClassMapper studentClassMapper;
 
     @Test
     public void testSelectPage() {
@@ -46,8 +55,9 @@ public class ContentTest {
         records.forEach(System.out::println);
     }
 
+
     @Test
-    public void testAddStudent() {
+    public void testAddClassAndStudent() {
         String[] genders = {"男", "女"};
         String[] stu_classes = {"1101", "1102", "1103", "1104", "1105",
                 "1201", "1202", "1203", "1204", "1205",
@@ -56,18 +66,30 @@ public class ContentTest {
                 "1501", "1502", "1503", "1504", "1505"
         };
         Random random = new Random();
+        Student student = new Student();
+        StudentClass studentClass = new StudentClass();
+        // 学生表存在外键时  应先添加父表(班级表)数据 然后再添加学生表数据  删除则反过来
+        for (String stu_class : stu_classes) {
+            studentClass.setClassName(stu_class);
+            studentClassService.save(studentClass);
+        }
         for (Integer i = 0; i < STUDENT_NUM; i++) {
-            String name = SpringBootUtils.generateRandomName(5);
+            String name = SpringBootUtils.getRandomChineseName();
             String gender = genders[random.nextInt(genders.length)];
             String stu_class = stu_classes[random.nextInt(stu_classes.length)];
             int age = random.nextInt(60) + 20;
-            Student student = new Student();
             student.setStudentName(name);
             student.setStudentGender(gender);
             student.setStudentClass(stu_class);
             student.setStudentAge(age);
             studentService.save(student);
         }
+    }
+
+    @Test
+    public void testQueryService(){
+        List<Student> studentList = studentService.queryStudentList(1, 9);
+        studentList.forEach(System.out::println);
     }
 
 }

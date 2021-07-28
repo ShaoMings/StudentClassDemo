@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * </p>
  *
  * @author shaoming
- * @since 2021-07-27
+ * @since 2021-07-28
  */
 @Repository
 public interface StudentMapper extends BaseMapper<Student> {
