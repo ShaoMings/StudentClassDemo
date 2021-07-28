@@ -4,6 +4,8 @@ import com.flamelephant.model.Student;
 import com.flamelephant.model.StudentClass;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,6 +15,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-07-28
  */
 public interface StudentClassService extends IService<StudentClass> {
+
+    /**
+     * 查看班级信息
+     * @param currentPage 当前页数
+     * @param pageSize 页面记录数量
+     * @return 查询结果
+     */
+    List<String> queryStudentClass(Integer currentPage,Integer pageSize);
+
     /**
      * 添加学生
      * @param student 学生实体

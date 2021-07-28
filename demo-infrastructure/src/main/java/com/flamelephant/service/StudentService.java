@@ -2,6 +2,7 @@ package com.flamelephant.service;
 
 import com.flamelephant.model.Student;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @author shaoming
  * @since 2021-07-28
  */
+
 public interface StudentService extends IService<Student> {
     /**
      * 查询学生列表 支持分页，字段有：学生名称，所属班级，加入班级时间，性别，年龄

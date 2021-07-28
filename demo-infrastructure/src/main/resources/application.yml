@@ -24,5 +24,5 @@ mybatis-plus:
       logic-delete-field: deleted  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以不加@TableLogic在实体类字段上)
       logic-delete-value: 1
       logic-not-delete-value: 0
-#  mapper-locations: classpath*:com/study/mapper/*.xml
-#  type-aliases-package: com.study.model
+  mapper-locations: classpath*:com/flamelephant/mapper/*.xml
+  type-aliases-package: com.flamelephant.model
