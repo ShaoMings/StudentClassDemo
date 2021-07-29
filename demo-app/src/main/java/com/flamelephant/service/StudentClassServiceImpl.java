@@ -2,7 +2,6 @@ package com.flamelephant.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.flamelephant.mapper.StudentMapper;
 import com.flamelephant.model.Student;
 import com.flamelephant.model.StudentClass;
 import com.flamelephant.mapper.StudentClassMapper;
